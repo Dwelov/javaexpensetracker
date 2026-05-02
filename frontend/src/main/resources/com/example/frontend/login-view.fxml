@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<StackPane stylesheets="@login.css" styleClass="main-container" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.frontend.LoginController">
+    <VBox styleClass="login-card" alignment="CENTER" spacing="20" maxWidth="400" maxHeight="500">
+        <Text text="Welcome Back" styleClass="title-text"/>
+        <Text text="Sign in to continue" styleClass="subtitle-text"/>
+
+        <VBox spacing="10" styleClass="input-container">
+            <Label text="Username"/>
+            <TextField fx:id="usernameField" promptText="Enter your username"/>
+        </VBox>
+
+        <VBox spacing="10" styleClass="input-container">
+            <Label text="Password"/>
+            <PasswordField fx:id="passwordField" promptText="Enter your password"/>
+        </VBox>
+
+        <Button text="LOGIN" onAction="#handleLogin" styleClass="login-button" maxWidth="Infinity"/>
+
+        <HBox alignment="CENTER" spacing="5">
+            <Label text="Don't have an account?" styleClass="footer-text"/>
+            <Hyperlink text="Sign up" styleClass="signup-link" onAction="#handleSignup"/>
+        </HBox>
+        
+        <Label fx:id="errorLabel" styleClass="error-label" visible="false" />
+    </VBox>
+</StackPane>
