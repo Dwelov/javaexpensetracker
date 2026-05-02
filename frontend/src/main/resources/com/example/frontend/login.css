@@ -1,87 +1,210 @@
+/* ============================================================
+   MODERN DARK GLASSMORPHISM LOGIN — Expense Tracker
+   ============================================================ */
+
+/* --- Root container with deep dark gradient --- */
 .main-container {
-    -fx-background-color: #121212;
+    -fx-background-color: linear-gradient(to bottom right, #0a0a0f, #0d1117, #0a0a0f);
 }
 
+/* --- Background decorative orbs --- */
+.bg-orb {
+    -fx-opacity: 0.12;
+}
+.bg-orb-1 {
+    -fx-fill: #6c5ce7;
+}
+.bg-orb-2 {
+    -fx-fill: #00b4d8;
+}
+.bg-orb-3 {
+    -fx-fill: #007acc;
+}
+
+/* --- Glass login card --- */
 .login-card {
-    -fx-background-color: #1e1e1e;
-    -fx-background-radius: 15;
-    -fx-padding: 40 40 40 40;
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 5);
+    -fx-background-color: rgba(255, 255, 255, 0.04);
+    -fx-background-radius: 24;
+    -fx-border-color: rgba(255, 255, 255, 0.08);
+    -fx-border-radius: 24;
+    -fx-border-width: 1;
+    -fx-padding: 36 40 32 40;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.65), 40, 0.0, 0, 12);
 }
 
+/* --- Top accent gradient bar --- */
+.accent-bar {
+    -fx-background-color: linear-gradient(to right, #6c5ce7, #007acc, #00b4d8);
+    -fx-background-radius: 2;
+}
+
+/* --- Avatar ring --- */
+.avatar-ring {
+    -fx-background-color: linear-gradient(to bottom right, #6c5ce7, #007acc);
+    -fx-background-radius: 36;
+    -fx-padding: 3;
+}
+.avatar-circle {
+    -fx-fill: #13131a;
+}
+.avatar-icon {
+    -fx-fill: #00b4d8;
+    -fx-font-size: 26px;
+}
+
+/* --- Title & subtitle --- */
 .title-text {
-    -fx-fill: #ffffff;
-    -fx-font-size: 28px;
+    -fx-fill: #f0f0f5;
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Segoe UI", "SF Pro Display", Arial, sans-serif;
+}
+.subtitle-text {
+    -fx-fill: #6b7280;
+    -fx-font-size: 13px;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* --- Input groups --- */
+.input-group {
+    -fx-padding: 0;
+}
+.input-label {
+    -fx-text-fill: #9ca3af;
+    -fx-font-size: 11px;
     -fx-font-weight: bold;
     -fx-font-family: "Segoe UI", Arial, sans-serif;
 }
 
-.subtitle-text {
-    -fx-fill: #aaaaaa;
+/* --- Input wrapper for icon positioning --- */
+.input-wrapper {
+    -fx-alignment: center-left;
+}
+.field-icon {
+    -fx-translate-x: 12;
     -fx-font-size: 14px;
+    -fx-opacity: 0.5;
 }
 
-.input-container {
-    -fx-padding: 10 0 10 0;
-}
-
-.input-container .label {
-    -fx-text-fill: #dddddd;
+/* --- Modern text fields --- */
+.modern-field {
+    -fx-background-color: rgba(255, 255, 255, 0.05);
+    -fx-text-fill: #e5e7eb;
+    -fx-prompt-text-fill: #4b5563;
+    -fx-background-radius: 12;
+    -fx-padding: 13 14 13 40;
     -fx-font-size: 14px;
-}
-
-.text-field, .password-field {
-    -fx-background-color: #2d2d2d;
-    -fx-text-fill: #ffffff;
-    -fx-prompt-text-fill: #888888;
-    -fx-background-radius: 5;
-    -fx-padding: 10;
-    -fx-font-size: 14px;
-    -fx-border-color: #3d3d3d;
-    -fx-border-radius: 5;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-border-color: rgba(255, 255, 255, 0.08);
+    -fx-border-radius: 12;
     -fx-border-width: 1;
 }
-
-.text-field:focused, .password-field:focused {
+.modern-field:focused {
     -fx-border-color: #007acc;
-    -fx-background-color: #333333;
+    -fx-background-color: rgba(0, 122, 204, 0.06);
+    -fx-effect: dropshadow(gaussian, rgba(0, 122, 204, 0.25), 12, 0.0, 0, 0);
+}
+.modern-field:hover {
+    -fx-border-color: rgba(255, 255, 255, 0.15);
 }
 
-.login-button {
-    -fx-background-color: #007acc;
-    -fx-text-fill: white;
-    -fx-font-size: 16px;
-    -fx-font-weight: bold;
-    -fx-padding: 12;
-    -fx-background-radius: 5;
-    -fx-cursor: hand;
-}
-
-.login-button:hover {
-    -fx-background-color: #0098ff;
-}
-
-.login-button:pressed {
-    -fx-background-color: #005c99;
-}
-
-.footer-text {
-    -fx-text-fill: #aaaaaa;
-    -fx-font-size: 13px;
-}
-
-.signup-link {
-    -fx-text-fill: #007acc;
-    -fx-font-size: 13px;
+/* --- Forgot link --- */
+.forgot-link {
+    -fx-text-fill: #6c5ce7;
+    -fx-font-size: 11px;
     -fx-border-color: transparent;
     -fx-padding: 0;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
 }
-
-.signup-link:hover {
+.forgot-link:hover {
+    -fx-text-fill: #a78bfa;
     -fx-underline: true;
 }
 
-.error-label {
-    -fx-text-fill: #ff4c4c;
+/* --- Remember me --- */
+.remember-row {
+    -fx-padding: 4 2 0 2;
+}
+.remember-check {
+    -fx-text-fill: #6b7280;
+    -fx-font-size: 12px;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+}
+.remember-check .box {
+    -fx-background-color: rgba(255, 255, 255, 0.06);
+    -fx-border-color: rgba(255, 255, 255, 0.12);
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-padding: 3;
+}
+.remember-check:selected .box {
+    -fx-background-color: #007acc;
+    -fx-border-color: #007acc;
+}
+.remember-check .mark {
+    -fx-background-color: white;
+}
+
+/* --- Primary login button with gradient --- */
+.login-button {
+    -fx-background-color: linear-gradient(to right, #6c5ce7, #007acc);
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-padding: 14;
+    -fx-background-radius: 12;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(108, 92, 231, 0.35), 16, 0.0, 0, 4);
+}
+.login-button:hover {
+    -fx-background-color: linear-gradient(to right, #7c6df7, #0098ff);
+    -fx-effect: dropshadow(gaussian, rgba(108, 92, 231, 0.55), 22, 0.0, 0, 6);
+}
+.login-button:pressed {
+    -fx-background-color: linear-gradient(to right, #5a4bd6, #005c99);
+    -fx-effect: dropshadow(gaussian, rgba(108, 92, 231, 0.2), 8, 0.0, 0, 2);
+}
+
+/* --- Divider row --- */
+.divider-row {
+    -fx-padding: 0 4 0 4;
+}
+.divider-line {
+    -fx-min-height: 1;
+    -fx-max-height: 1;
+    -fx-background-color: rgba(255, 255, 255, 0.08);
+}
+.divider-text {
+    -fx-text-fill: #4b5563;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* --- Footer & sign up --- */
+.footer-text {
+    -fx-text-fill: #6b7280;
     -fx-font-size: 13px;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+}
+.signup-link {
+    -fx-text-fill: #00b4d8;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+}
+.signup-link:hover {
+    -fx-text-fill: #38d9f5;
+    -fx-underline: true;
+}
+
+/* --- Error / success label --- */
+.error-label {
+    -fx-text-fill: #ef4444;
+    -fx-font-size: 13px;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-padding: 4 0 0 0;
 }

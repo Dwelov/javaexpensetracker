@@ -3,29 +3,101 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.geometry.Insets?>
 
-<StackPane stylesheets="@login.css" styleClass="main-container" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.frontend.LoginController">
-    <VBox styleClass="login-card" alignment="CENTER" spacing="20" maxWidth="400" maxHeight="500">
+<StackPane stylesheets="@login.css" styleClass="main-container"
+           xmlns="http://javafx.com/javafx/17"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.example.frontend.LoginController">
+
+    <!-- Animated background accent circles -->
+    <Circle radius="180" styleClass="bg-orb bg-orb-1" translateX="-280" translateY="-200"
+            mouseTransparent="true" />
+    <Circle radius="140" styleClass="bg-orb bg-orb-2" translateX="300" translateY="180"
+            mouseTransparent="true" />
+    <Circle radius="100" styleClass="bg-orb bg-orb-3" translateX="150" translateY="-260"
+            mouseTransparent="true" />
+
+    <!-- Main login card with glassmorphism -->
+    <VBox styleClass="login-card" alignment="CENTER" spacing="0" maxWidth="420" maxHeight="580">
+
+        <!-- Top decorative accent bar -->
+        <Region styleClass="accent-bar" maxHeight="4" maxWidth="60" />
+
+        <Region minHeight="24" />
+
+        <!-- Avatar / brand icon area -->
+        <StackPane styleClass="avatar-ring" maxWidth="72" maxHeight="72" minWidth="72" minHeight="72">
+            <Circle radius="30" styleClass="avatar-circle" />
+            <Text text="✦" styleClass="avatar-icon" />
+        </StackPane>
+
+        <Region minHeight="20" />
+
         <Text text="Welcome Back" styleClass="title-text"/>
-        <Text text="Sign in to continue" styleClass="subtitle-text"/>
+        <Region minHeight="4" />
+        <Text text="Sign in to your expense tracker" styleClass="subtitle-text"/>
 
-        <VBox spacing="10" styleClass="input-container">
-            <Label text="Username"/>
-            <TextField fx:id="usernameField" promptText="Enter your username"/>
+        <Region minHeight="28" />
+
+        <!-- Username input group -->
+        <VBox spacing="8" styleClass="input-group">
+            <Label text="USERNAME" styleClass="input-label"/>
+            <StackPane styleClass="input-wrapper">
+                <TextField fx:id="usernameField" promptText="Enter your username" styleClass="modern-field"/>
+                <Label text="👤" styleClass="field-icon" mouseTransparent="true"/>
+            </StackPane>
         </VBox>
 
-        <VBox spacing="10" styleClass="input-container">
-            <Label text="Password"/>
-            <PasswordField fx:id="passwordField" promptText="Enter your password"/>
+        <Region minHeight="16" />
+
+        <!-- Password input group -->
+        <VBox spacing="8" styleClass="input-group">
+            <HBox alignment="CENTER_LEFT">
+                <Label text="PASSWORD" styleClass="input-label"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Hyperlink text="Forgot?" styleClass="forgot-link"/>
+            </HBox>
+            <StackPane styleClass="input-wrapper">
+                <PasswordField fx:id="passwordField" promptText="Enter your password" styleClass="modern-field"/>
+                <Label text="🔒" styleClass="field-icon" mouseTransparent="true"/>
+            </StackPane>
         </VBox>
 
-        <Button text="LOGIN" onAction="#handleLogin" styleClass="login-button" maxWidth="Infinity"/>
+        <Region minHeight="8" />
 
+        <!-- Remember me -->
+        <HBox alignment="CENTER_LEFT" spacing="8" styleClass="remember-row">
+            <CheckBox text="Remember me" styleClass="remember-check"/>
+        </HBox>
+
+        <Region minHeight="20" />
+
+        <!-- Login button -->
+        <Button text="Sign In" onAction="#handleLogin" styleClass="login-button" maxWidth="Infinity"/>
+
+        <Region minHeight="12" />
+
+        <!-- Divider -->
+        <HBox alignment="CENTER" spacing="12" styleClass="divider-row">
+            <Region styleClass="divider-line" HBox.hgrow="ALWAYS"/>
+            <Label text="OR" styleClass="divider-text"/>
+            <Region styleClass="divider-line" HBox.hgrow="ALWAYS"/>
+        </HBox>
+
+        <Region minHeight="12" />
+
+        <!-- Sign up row -->
         <HBox alignment="CENTER" spacing="5">
             <Label text="Don't have an account?" styleClass="footer-text"/>
-            <Hyperlink text="Sign up" styleClass="signup-link" onAction="#handleSignup"/>
+            <Hyperlink text="Create one" styleClass="signup-link" onAction="#handleSignup"/>
         </HBox>
-        
+
+        <Region minHeight="8" />
+
         <Label fx:id="errorLabel" styleClass="error-label" visible="false" />
     </VBox>
 </StackPane>
