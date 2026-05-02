@@ -18,7 +18,7 @@ public class LoginController {
     private Label errorLabel;
 
     @FXML
-    public void handleLogin(ActionEvent event) {
+    public void handleLogin(@SuppressWarnings("exports") ActionEvent event) {
         String username = usernameField.getText();
         String password = passwordField.getText();
         
@@ -36,7 +36,7 @@ public class LoginController {
     }
 
     @FXML
-    public void handleSignup(ActionEvent event) {
+    public void handleSignup(@SuppressWarnings("exports") ActionEvent event) {
         System.out.println("Navigate to Sign Up");
     }
 }
