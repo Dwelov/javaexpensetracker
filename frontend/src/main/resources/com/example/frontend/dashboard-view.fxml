@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.geometry.Insets?>
+
+<StackPane stylesheets="@dashboard.css" styleClass="main-container"
+           xmlns="http://javafx.com/javafx/17"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.example.frontend.DashboardController">
+
+    <!-- Animated background accent circles -->
+    <Circle radius="180" styleClass="bg-orb-1" translateX="-400" translateY="-300" mouseTransparent="true" />
+    <Circle radius="220" styleClass="bg-orb-2" translateX="500" translateY="250" mouseTransparent="true" />
+    <Circle radius="150" styleClass="bg-orb-3" translateX="100" translateY="400" mouseTransparent="true" />
+
+    <ScrollPane fitToWidth="true" fitToHeight="false" styleClass="dash-scroll">
+        <VBox spacing="24" styleClass="content-container">
+            <padding>
+                <Insets top="32" right="40" bottom="40" left="40"/>
+            </padding>
+
+            <!-- Header -->
+            <HBox alignment="CENTER_LEFT" spacing="12">
+                <StackPane styleClass="avatar-ring" minWidth="44" minHeight="44">
+                    <Circle radius="20" styleClass="avatar-circle" />
+                    <Text text="✦" styleClass="avatar-icon" />
+                </StackPane>
+                <Label text="Expense Tracker Dashboard" styleClass="page-title"/>
+            </HBox>
+
+            <!-- Summary Metrics -->
+            <HBox spacing="16">
+                <VBox styleClass="metric-card" HBox.hgrow="ALWAYS">
+                    <Label text="Total balance" styleClass="metric-label"/>
+                    <Label text="\$4,245" styleClass="metric-value-success"/>
+                </VBox>
+                <VBox styleClass="metric-card" HBox.hgrow="ALWAYS">
+                    <Label text="This month" styleClass="metric-label"/>
+                    <Label text="\$1,832" styleClass="metric-value-danger"/>
+                </VBox>
+                <VBox styleClass="metric-card" HBox.hgrow="ALWAYS">
+                    <Label text="Monthly income" styleClass="metric-label"/>
+                    <Label text="\$5,200" styleClass="metric-value"/>
+                </VBox>
+                <VBox styleClass="metric-card" HBox.hgrow="ALWAYS">
+                    <Label text="Budget left" styleClass="metric-label"/>
+                    <Label text="\$368" styleClass="metric-value-warning"/>
+                </VBox>
+            </HBox>
+
+            <!-- Charts Row -->
+            <HBox spacing="24">
+                <!-- Spending Trends -->
+                <VBox styleClass="chart-card" HBox.hgrow="ALWAYS" spacing="12">
+                    <HBox alignment="CENTER_LEFT">
+                        <Label text="Spending trends" styleClass="section-title"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <ComboBox fx:id="timeRangeCombo" styleClass="modern-combo"/>
+                    </HBox>
+                    <LineChart fx:id="trendChart" legendVisible="false" prefHeight="240" animated="false">
+                        <xAxis><CategoryAxis /></xAxis>
+                        <yAxis><NumberAxis /></yAxis>
+                    </LineChart>
+                </VBox>
+
+                <!-- Category Breakdown -->
+                <VBox styleClass="chart-card" prefWidth="320" spacing="12">
+                    <Label text="By category" styleClass="section-title"/>
+                    <PieChart fx:id="categoryChart" legendVisible="true" prefHeight="260" animated="false"/>
+                </VBox>
+            </HBox>
+
+            <!-- Transactions Section -->
+            <VBox styleClass="table-card" spacing="16">
+                <HBox alignment="CENTER_LEFT">
+                    <Label text="Recent transactions" styleClass="section-title"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button text="+ Add expense" styleClass="primary-button"/>
+                </HBox>
+
+                <TableView fx:id="transactionsTable" prefHeight="280">
+                    <columns>
+                        <TableColumn fx:id="dateCol"     text="Date"        prefWidth="100"/>
+                        <TableColumn fx:id="descCol"     text="Description" prefWidth="300"/>
+                        <TableColumn fx:id="categoryCol" text="Category"    prefWidth="140"/>
+                        <TableColumn fx:id="amountCol"   text="Amount"      prefWidth="120"/>
+                    </columns>
+                </TableView>
+
+                <HBox spacing="12">
+                    <Button text="View all" styleClass="action-button"/>
+                    <Button text="Export"   styleClass="action-button"/>
+                    <Button text="Filter"   styleClass="action-button"/>
+                </HBox>
+            </VBox>
+
+        </VBox>
+    </ScrollPane>
+</StackPane>

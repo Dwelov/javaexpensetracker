@@ -10,10 +10,14 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     @Override
     public void start(@SuppressWarnings("exports") Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("dashboard-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 900, 650);
-        stage.setTitle("Expense Tracker — Sign In");
+        stage.setTitle("Expense Tracker — Dashboard");
         stage.setScene(scene);
         stage.show();
+    }
+
+    public static void main(String[] args) {
+        launch();
     }
 }
